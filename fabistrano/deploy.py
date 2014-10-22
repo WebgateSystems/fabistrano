@@ -1,4 +1,4 @@
-from fabric.api import env, sudo, run, put, task
+from fabric.api import env, run, put, task
 from fabistrano.helpers import with_defaults
 
 
@@ -7,10 +7,11 @@ VERSION = "0.2"
 env.timeout = 6000
 
 def sudo_run(*args, **kwargs):
-    if env.use_sudo:
-        sudo(*args, **kwargs)
-    else:
-        run(*args, **kwargs)
+    run(*args, **kwargs)
+#    if env.use_sudo:
+#        sudo(*args, **kwargs)
+#    else:
+#        run(*args, **kwargs)
 
 @task
 @with_defaults
